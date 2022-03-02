@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  
+<!-- Mirrored from florence-admin-template.multipurposethemes.com/bs4/main/index3.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 12 Jan 2022 13:37:33 GMT -->
+<head>
+   <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link rel="icon" href="images/favicon.ico"/>
+
+    <title>PlatServ</title>
+    
+	<!-- Vendors Style-->
+	<link rel="stylesheet" href="css/vendors_css.css"/>
+	  
+	<!-- Style-->  
+	<link rel="stylesheet" href="css/style.css"/>
+	<link rel="stylesheet" href="css/skin_color.css/">
+     
+     
+  </head>
+
+<body class="hold-transition light-skin sidebar-mini theme-primary">
+	
+<div class="wrapper">
+
+  <header class="main-header">
+	<div class="d-flex align-items-center logo-box justify-content-between">
+		<a href="#" class="waves-effect waves-light nav-link rounded d-none d-md-inline-block mx-10 push-btn" data-toggle="push-menu" role="button">
+			<i class="ti-menu"></i>
+		</a>	
+		<!-- Logo -->
+	<a href="index3" class="logo">
+		  <!-- logo-->
+		 <div class="logo-lg">
+			 <!--  <span class="light-logo"><img src="chefs/images/logo-dark-text.png" alt="logo"></span>
+			  <span class="dark-logo"><img src="chefs/images/logo-light-text.png" alt="logo"></span> -->
+		  </div>
+		</a>	
+	</div>  
+    <!-- Header Navbar -->
+    <nav class="navbar navbar-static-top pl-10">
+      <!-- Sidebar toggle button-->
+	  <div class="app-menu">
+		
+	  </div>
+		
+      <div class="navbar-custom-menu r-side">
+        <ul class="nav navbar-nav">	
+			<li class="btn-group nav-item d-lg-inline-flex d-none">
+				<a href="#" data-provide="fullscreen" class="waves-effect waves-light nav-link rounded full-screen" title="Full Screen">
+					<i class="ti-fullscreen"></i>
+			    </a>
+			</li>	  
+		
+		  <!-- Notifications -->
+		  <li class="dropdown notifications-menu">
+			<a href="#" class="waves-effect waves-light dropdown-toggle" data-toggle="dropdown" title="Notifications">
+			  <i class="ti-bell"></i>
+			</a>
+			<ul class="dropdown-menu animated bounceIn">
+
+			  <li class="header">
+				<div class="p-20">
+					<div class="flexbox">
+						<div>
+							<h4 class="mb-0 mt-0">Notifications</h4>
+						</div>
+						<div>
+							<a href="#" class="text-danger"></a>
+						</div>
+					</div>
+				</div>
+			  </li>
+
+			  <li>
+				<!-- inner menu: contains the actual data -->
+				<ul class="menu sm-scrol">
+				  <li>
+					<a href="#">
+					  <i class="fa fa-users text-info"></i> Une nouvelle demande.
+					</a>
+				  </li>
+				 
+				
+				</ul>
+			  </li>
+			  <li class="footer">
+				  <a href="#">Voir tous</a>
+			  </li>
+			</ul>
+		  </li>	
+		  
+	      <!-- User Account-->
+          <li class="dropdown user user-menu">
+            <a href="#" class="waves-effect waves-light dropdown-toggle" data-toggle="dropdown" title="User">
+				<i class="ti-user"></i>
+            </a>
+            <ul class="dropdown-menu animated flipInX">
+              <li class="user-body">
+				
+				 <a class="dropdown-item" href="profilee"><i class="ti-settings text-muted mr-2"></i> Parametre</a>
+				 <div class="dropdown-divider"></div>
+				 <a class="dropdown-item" href="deconnexion"><i class="ti-lock text-muted mr-2"></i> Deconnection</a>
+              </li>
+            </ul>
+          </li>	
+		  
+          <!-- Control Sidebar Toggle Button -->
+       
+			
+        </ul>
+      </div>
+    </nav>
+  </header>
+  
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+    <!-- sidebar-->
+    <section class="sidebar">	
+	    <div class="user-profile px-10 py-15">
+			<div class="d-flex align-items-center">			
+				<div class="image">
+					<div class="avatar-lg mx-auto mb-4">
+						<div class="avatar-title bg-soft-primary rounded-circle text-primary">
+							<i class="mdi mdi-account-circle display-4 m-0 text-primary"></i>
+						</div>
+					</div>
+				  
+				</div>
+				<div class="info ml-10">
+					<p class="mb-0">Bienvenu</p>
+					<h5 class="mb-0" th:text="${chef.username}"></h5>	
+				</div>
+			</div>
+        </div>	
+		
+      <!-- sidebar menu-->
+       <ul class="sidebar-menu" data-widget="tree">		
+		<li>
+          <a href="index3">
+            <i class="ti-bar-chart-alt"></i>
+			<span>Statistique</span>
+           
+          </a>
+         
+        </li>	
+
+		<li>
+			<a href="demande">
+			  <i class="ti-layout-grid2"></i>
+			  <span>Demande</span>
+			 
+			</a>
+		   
+		  </li>	
+
+		  <li>
+			<a href="chefProjet">
+			  <i class="fa fa-user-secret" aria-hidden="true"></i>
+			  <span>Chef Projet</span>
+			 
+			</a>
+		   
+		  </li>
+		  <li>
+			<a href="membre">
+			  <i class="fa fa-user" aria-hidden="true"></i>
+			  <span>Membre</span>
+			 
+			</a>
+		   
+		  </li>
+		  <li>
+			<a href="projet">
+			  <i class="fa fa-line-chart" aria-hidden="true"></i>
+			  <span>Projets</span>
+			 
+			</a>
+		   
+		  </li>
+		  <li>
+			<a href="profilee">
+				<i class="ti-settings text-muted mr-2"></i>
+			  <span>Parametre</span>
+			 
+			</a>
+		   
+		  </li>
+	
+      </ul>
+    </section>
+	
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+	  <div class="container-full">
+		<!-- Main content -->
+		<section class="content">
+            <div class="row">
+      <div class="col-12">
+        <div class="box">
+            <div class="box-body">
+                <!-- Nav tabs -->
+                <ul class="nav nav-pills rounded nav-justified">
+                    <li class="nav-item"> <a href="#navpills-1" class="nav-link active" data-toggle="tab" aria-expanded="false">Les membres</a> </li>
+                    <li class="nav-item"> <a href="#navpills-2" class="nav-link" data-toggle="tab" aria-expanded="false">Les phases</a> </li>
+                    <li class="nav-item"> <a href="#navpills-3" class="nav-link" data-toggle="tab" aria-expanded="true">CHef Projet</a> </li>
+                   
+                </ul>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <div class="box">
+            <div class="box-body">
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div id="navpills-1" class="tab-pane active">	
+                        <div class="box-body p-15">						
+							<div class="table-responsive">
+								<table id="tickets" class="table mt-0 table-hover no-wrap table-borderless" data-page-size="10">
+									<thead>
+										<tr>
+                                            <th scope="col"><i class="ti-user"></i></th>
+                                            <th scope="col">Nom</th>
+                                            <th scope="col">Prenom</th>
+                                          
+                                            <th scope="col">Telephone</th>
+									        
+										</tr>
+									</thead>
+									<tbody>
+									
+									<tr th:each="p:${membres}">
+                                            <th scope="row"> <a href="#" class="question_content"><i class="ti-user"></i></a></th>
+											<td th:text="${p.Nom}"></td>
+											<td th:text="${p.Prenom}"></td>
+											<td th:text="${p.telephone}"></td>
+											
+											
+											
+										
+											
+										</tr>
+									
+										
+										
+									</tbody>
+								</table>
+							</div>
+						</div>
+                    </div>
+                    <div id="navpills-2" class="tab-pane">
+
+                        <div class="box-body p-15">						
+							<div class="table-responsive">
+								<table id="example1" class="table table-bordered table-striped" data-page-size="10">
+									<thead>
+										<tr>
+                                           
+                                            <th scope="col">Nom</th>
+                                                <th scope="col">Description</th>
+                                                <th scope="col">delais</th>
+                                                <th scope="col">Budget</th>
+                                                <th scope="col">Status</th>
+										</tr>
+									</thead>
+									<tbody>
+									
+											<tr th:each="p:${phases}">
+                                            <th scope="row"  th:text="${p.nom}"> <a href="#" class="question_content"></a></th>
+                                            <td th:text="${p.description}"></td>
+                                               <td th:text="${p.delais}"></td>
+                                                  <td th:text="${p.budget}"></td>
+                                                
+                                              
+                                                <td>    
+                                                    
+                                                    
+                                                    <div class="progress">
+                                                        <div class="progress-bar progress-bar-striped" th:text=${p.status} role="progressbar" th:style="'width: '+${p.status} + '%;'" aria-valuenow="th:value=${p.status}"  aria-valuemax="100"></div>
+                                                      </div>
+										</tr>
+										
+										
+										
+										
+										
+									</tbody>
+								</table>
+							</div>
+						</div>
+                    </div>
+                    <div id="navpills-3" class="tab-pane">
+                        <div class="white_card_body">
+                            <div class="QA_section">
+                                <div class="white_box_tittle list_header">
+                                    <h4>Chef Projet</h4>
+                                    <div class="box_right d-flex lms_block">
+                                        <div class="serach_field_2">
+                                            <div class="search_inner">
+                                              
+                                              
+                                            </div>
+                                        </div>
+                                     
+                                    </div>
+                                </div>
+
+
+
+                <div class="single_user_pil d-flex align-items-center justify-content-between">
+                    <div class="user_pils_thumb d-flex align-items-center">
+                        <div class="avatar-lg mx-auto mb-4">
+                            <div class="avatar-title bg-soft-primary rounded-circle text-primary">
+                                <i class="mdi mdi-account-circle display-4 m-0 text-primary"></i>
+                            </div>
+                        </div>
+                        <span class="f_s_14 f_w_400 text_color_11" th:text="${chefprojet.Nom}+' '+${chefprojet.Prenom}"></span>
+                    </div>
+                    <div class="user_info">
+                        Chef Projet
+                    </div>
+                    <div class="action_btns d-flex">
+                        <span class="f_s_14 f_w_400 text_color_11" th:text="${chefprojet.telephone}"></span>
+                       
+                    </div>
+                </div>
+            </div> 
+        </div> 
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+		
+		</section>
+	
+    
+
+	  </div>
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div class="pull-right d-none d-sm-inline-block">
+        <ul class="nav nav-primary nav-dotted nav-dot-separated justify-content-center justify-content-md-end">
+		 
+		</ul>
+    </div>
+	  &copy; 2022 Prestation.
+  </footer>
+
+ 
+  <!-- /.control-sidebar -->
+  
+  <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
+  
+</div>
+<!-- ./wrapper -->	 
+	
+	<!-- Vendor JS -->
+
+	<script src="js/vendors.min.js"></script>
+    <script src="assets/icons/feather-icons/feather.min.js"></script>
+			<script src="assets/vendor_components/datatable/datatables.min.js"></script>
+        <script src="assets/vendor_components/jquery.peity/jquery.peity.js"></script>
+        
+        <!-- Florence Admin App -->
+    <script src="js/template.js"></script>
+	<script src="js/pages/dashboard3.js"></script>
+	<script src="js/demo.js"></script>
+        <script src="js/pages/data-table.js"></script>
+        <script src="js/pages/app-ticket.js"></script>
+	
+</body>
+
+<!-- Mirrored from florence-admin-template.multipurposethemes.com/bs4/main/index3.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 12 Jan 2022 13:37:35 GMT -->
+</html>

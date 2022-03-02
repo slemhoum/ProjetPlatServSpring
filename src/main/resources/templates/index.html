@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <!-- ===== CSS ===== -->
+        <link rel="stylesheet" href="assets1/css/styles.css"/>
+    
+        <!-- ===== BOX ICONS ===== -->
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'/>
+
+        <title></title>
+    </head>
+    <body>
+        <div class="login">
+            <div class="login__content">
+                <div class="login__img">
+                    <img src="assets1/img/imgg3.svg" alt=""/>
+                </div>
+
+                <div class="login__forms">
+                    <form  th:action="@{login}" method="Post" class="login__registre" id="login-in">
+                        <h1 class="login__title">S'identifier</h1>
+                        <p style="color:red" class="mb-0" th:text="${message}"/>
+    
+                        <div class="login__box">
+                            <i class='bx bx-user login__icon'></i>
+                            <input type="text" placeholder="Username" class="login__input"  name="username" th:value="${chefService.username}"/>
+                        </div>
+    
+                        <div class="login__box">
+                            <i class='bx bx-lock-alt login__icon'></i>
+                            <input type="password" placeholder="Password" class="login__input"  name="password"  th:value="${chefService.password}"/>
+                        </div>
+                        <div class="login__box">
+                            <i class='bx bx-check login__icon'></i>
+                            <select type="text"  class="login__input"  name="role">
+                                <option value="admin">Admin</option>
+                                <option value="chefservice">Chef Service</option>
+                                 <option value="chefprojet">Chef Projet</option>
+                                  <option value="accueil">Accueilleur</option>
+                                   <option value="client">Client</option>
+                               </select>
+                        </div>
+
+
+
+                      
+
+                        <button type="submit" class="login__button">Login</button>
+
+                      
+                    </form>
+
+              
+                </div>
+            </div>
+        </div>
+
+        <!--===== MAIN JS =====-->
+        <script src="assets1/js/main.js"></script>
+    </body>
+</html>

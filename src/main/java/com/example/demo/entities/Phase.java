@@ -34,6 +34,8 @@ public class Phase implements Serializable{
 	@Column(length=30)
 	private String delais;
 	private Date date_debut;
+	
+	private double budget;
 	@ManyToOne
 	@JoinColumn(name="id_projet")
 	private Projet projet;
