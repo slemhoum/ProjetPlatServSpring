@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>client</title>
+<link rel="stylesheet" type="text/css" href="Mey/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="contaire col-md-10 col-md-offset-1">
+<div class="contaire">
+<div class="panel panel-primary">
+<div class="panel-heading">update Client</div>
+<div class="panel-body">
+<form th:action="@{saveC}" method="POST">
+<div class="row">
+<div class="col-md-6 pr-0">
+<div class="form-group form-group-default">
+<label>Name </label>
+<input name="Nom" type="text" class="form-control"th:value="${client.Nom}"placeholder="Name">
+</div>
+																	</div>
+																	<div class="col-md-6 pr-0">
+																		<div class="form-group form-group-default">
+																			<label>Prenom</label>
+																			<input name="Prenom" type="text" class="form-control"th:value="${client.Prenom}">
+																		</div>
+																	</div>
+																	<div class="col-md-6 pr-0">
+																		<div class="form-group form-group-default">
+																			<label>Telephone</label>
+																			<input name="telephone" type="text" class="form-control"th:value="${client.telephone}">
+																		</div>
+																	</div>
+																	<div class="col-md-6 pr-0">
+																	<div class="form-group form-group-default">
+																			<label>Username</label>
+																			<input name="username" type="text" class="form-control"th:value="${client.username}" >
+																		</div>
+																	</div>
+																	<div class="col-md-6 pr-0">
+																	<div class="form-group form-group-default">
+																			<label>Type</label>
+																			<input name="type" type="text" class="form-control"th:value="${client.type}">
+																		</div>
+																	</div>
+																	<div class="col-md-6 pr-0">
+																	<div class="form-group form-group-default">
+																			<label>Passeword</label>
+																			<input name="password" type="text" class="form-control"th:value="${client.password}">
+																		</div>
+																	</div>
+																	<input type="hidden" name="id"th:value="${client.id}"/>
+																	
+																</div>													
+														</div>
+														<div class="modal-footer no-bd">
+															<button type="submit"  class="btn btn-primary">EDITER</button>
+															<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+														</div></form>
+
+</div>
+</div>
+<div>
+</div>
+</body>
+</html>

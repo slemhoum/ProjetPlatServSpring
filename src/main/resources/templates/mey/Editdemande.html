@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>client</title>
+<link rel="stylesheet" type="text/css" href="Mey/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="contaire col-md-10 col-md-offset-1">
+<div class="contaire">
+<div class="panel panel-primary">
+<div class="panel-heading">update Demande</div>
+<div class="panel-body">
+<form th:action="@{EditD}" method="POST">
+														<div class="row">
+															<div class="col-md-6 pr-0">
+																<div class="form-group form-group-default">
+															<label>Client</label>
+															<select class="form-control form-control" id="defaultSelect" name="client" >
+																<div th:each="c:${cl}">
+													              <option th:text="${c.Nom}" th:value="${c.id}"></option>
+													            </div>	
+													        </select>
+																</div>
+															</div>
+															 <div class="col-md-6 pr-0">
+																<div class="form-group form-group-default">
+																	<label>accueil</label>
+												       <select class="form-control form-control" id="defaultSelect" name="accueil">
+																<div th:each="c:${acc}">
+													              <option th:text="${c.Nom}"  th:value="${c.id}"></option>
+													          </div>	
+													
+												               </select>
+																</div>
+															</div> 
+															<div class="col-md-6 pr-0">
+																<div class="form-group form-group-default">
+																	<label>service</label>
+																	
+																	<select class="form-control form-control" id="defaultSelect" name="service" th:value="${demande.service.nom}">
+																<div th:each="c:${sr}">
+													           <option th:text="${c.Nom}"  th:value="${c.id}"></option>
+													          </div>	
+													
+												                 </select>
+																</div>
+															</div>
+																
+																
+																<div class="col-md-6 pr-0">
+																<div class="form-group form-group-default">
+																	<label>Delais</label>
+																	<input name="delais" type="text" class="form-control" th:value="${demande.delais}" >
+																</div>
+															</div>
+																<div class="col-md-6 pr-0">
+																<div class="form-group form-group-default">
+																	<label>description</label>
+																	<input name="description" type="text" class="form-control" th:value="${demande.description}" >
+																</div>
+															</div>
+														
+														</div>
+													<input type="hidden" name="id"th:value="${demande.id}"/>
+													
+												</div>
+												<div class="modal-footer no-bd">
+													<button type="submit"  class="btn btn-success " >AJOUTER</button>
+													
+													<button type="button"  class="btn btn-danger"  data-dismiss="modal">Close</button>
+												</div></form>
+</div>
+<div class="col-md-6 pr-0">
+									
+</div>
+</div>
+<div>
+</div>
+</body>
+</html>

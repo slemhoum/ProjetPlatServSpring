@@ -17,14 +17,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.example.demo.Repository.AccueilleurRepo;
+import com.example.demo.Repository.AdminRepo;
 import com.example.demo.Repository.ChefServiceRepository;
 import com.example.demo.Repository.ClientRepository;
 import com.example.demo.Repository.DemandeRepo;
+import com.example.demo.Repository.DirecteurRepo;
 import com.example.demo.Repository.MembreRepository;
 import com.example.demo.Repository.PhaseRepository;
 import com.example.demo.Repository.ProjetRepo;
 import com.example.demo.Repository.ServiceRepository;
 import com.example.demo.Repository.chefProjetRepository;
+import com.example.demo.entities.Accueilleur;
 import com.example.demo.entities.ChefProjet;
 import com.example.demo.entities.ChefService;
 import com.example.demo.entities.Client;
@@ -61,6 +65,12 @@ public class Connexion{
 	  
 	  @Autowired
 			private PhaseRepository phaseRepository;
+	  @Autowired
+		private AccueilleurRepo accueilleurRepo;
+	  @Autowired
+		private AdminRepo adminRepo;
+	  @Autowired
+		private DirecteurRepo directeurRepo;
 	  
 	  @RequestMapping(value="/login",method=RequestMethod.GET)
 	public String index(Model model) {
@@ -130,6 +140,38 @@ public class Connexion{
 					
 				}
 
+		    	
+		    }
+		  
+		    else if (role.equalsIgnoreCase("accueil")) {
+		    	Accueilleur acc= accueilleurRepo.findByUsernameAndPassword(username,password);
+		    	if(Objects.isNull(acc)) {
+					String msg="invalid username/password";
+					model.addAttribute("message",msg);
+					
+					return "index";
+					
+					
+					
+				}
+		    	else{
+							String id=acc.getId().toString();
+							//model.addAttribute("id",id);
+							//model.addAttribute("chef",chef);
+							session.setAttribute("chef",acc);
+						
+
+							 
+									 
+							return "redirect:/index";
+							
+						}
+		    }
+		    else if (role.equalsIgnoreCase("directeur")) {
+		    	
+		    }
+		  
+       else if (role.equalsIgnoreCase("admin")) {
 		    	
 		    }
 		  return "";

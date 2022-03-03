@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>client</title>
+<link rel="stylesheet" type="text/css" href="Mey/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="contaire col-md-10 col-md-offset-1">
+<div class="contaire">
+<div class="panel panel-primary">
+<div class="panel-heading">update Client</div>
+<div class="panel-body">
+
+ <form th:action="@{saveS}" method="post">
+<div class="modal-body p-4">
+                                         
+<div class="row">
+<div class="col-md-6">
+<div class="mb-3">
+ <label for="field-1" class="form-label">Nom</label>
+<input type="text" class="form-control" id="field-1" placeholder="nom" name="nom" th:value="${client.nom}">
+</div>
+</div>
+<div class="col-md-6">
+<div class="mb-3">
+<label for="field-2" class="form-label">chef Service</label>	
+ <select class="form-control form-control" id="defaultSelect" name="chefService">
+<div th:each="c:${chS}">
+													              <option th:text="${c.Nom}"  th:value="${c.id}"></option>
+													          </div>	
+													
+												               </select>
+                               
+                                                    </div>
+                                                </div>
+                                            </div>
+                                          <input type="hidden" name="id" th:value="${client.id}"/>
+                                           
+                                           
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="reset" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Annuler</button>
+                                            <button type="submit" class="btn btn-info waves-effect waves-light">Enregistrer</button>
+                                        </div>
+                                          </form>
+</div>
+</div>
+<div>
+</div>
+</body>
+</html>
