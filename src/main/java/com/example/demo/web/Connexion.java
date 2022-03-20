@@ -29,10 +29,12 @@ import com.example.demo.Repository.ProjetRepo;
 import com.example.demo.Repository.ServiceRepository;
 import com.example.demo.Repository.chefProjetRepository;
 import com.example.demo.entities.Accueilleur;
+import com.example.demo.entities.Admin;
 import com.example.demo.entities.ChefProjet;
 import com.example.demo.entities.ChefService;
 import com.example.demo.entities.Client;
 import com.example.demo.entities.Demande;
+import com.example.demo.entities.Directeur;
 import com.example.demo.entities.Membre;
 import com.example.demo.entities.Phase;
 import com.example.demo.entities.Projet;
@@ -169,9 +171,55 @@ public class Connexion{
 		    }
 		    else if (role.equalsIgnoreCase("directeur")) {
 		    	
+		    	Directeur direc= directeurRepo.findByUsernameAndPassword(username,password);
+		    	if(Objects.isNull(direc)) {
+					String msg="invalid username/password";
+					model.addAttribute("message",msg);
+					
+					return "index";
+					
+					
+					
+				}
+		    	else{
+					String id=direc.getId().toString();
+					//model.addAttribute("id",id);
+					//model.addAttribute("chef",chef);
+					session.setAttribute("chef",direc);
+				
+
+					 
+							 
+					return "redirect:/dicD";
+					
+				}
+		    	
 		    }
 		  
        else if (role.equalsIgnoreCase("admin")) {
+    	   
+    		Admin ad= adminRepo.findByUsernameAndPassword(username,password);
+	    	if(Objects.isNull(ad)) {
+				String msg="invalid username/password";
+				model.addAttribute("message",msg);
+				
+				return "index";
+				
+				
+				
+			}
+	    	else{
+						String id=ad.getId().toString();
+						//model.addAttribute("id",id);
+						//model.addAttribute("chef",chef);
+						session.setAttribute("chef",ad);
+					
+
+						 
+								 
+						return "redirect:/AdminD";
+						
+					}
 		    	
 		    }
 		  return "";

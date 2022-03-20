@@ -59,12 +59,13 @@
     
                         <li class="dropdown notification-list topbar-dropdown">
                             <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                                <img src="Mey/assetsA/images/profile.png" alt="user-image" class="rounded-circle">
-                              
+                                 <img src="Mey/assetsA/images/profile.png" alt="user-image" class="rounded-circle">
+                                
                             </a>
                             <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
                                 <!-- item-->
-                               
+                             
+    
                                
 
                                 <!-- item-->
@@ -146,7 +147,7 @@
                 <div class="logo-box">
                         <a href="index.php" class="logo logo-dark text-center">
                             <span class="logo-sm">
-                                <img src="assetsA/images/logo-sm-dark.png" alt="" height="24">
+                                <img src="Mey/assetsA/images/logo-dark.png" alt="" height="20">
                                 <!-- <span class="logo-lg-text-light">Minton</span> -->
                             </span>
                             <span class="logo-lg">
@@ -157,10 +158,10 @@
 
                         <a href="index.php" class="logo logo-light text-center">
                             <span class="logo-sm">
-                                <img src="assetsA/images/logo-sm.png" alt="" height="24">
+                               <img src="Mey/assetsA/images/logo-dark.png" alt="" height="20">
                             </span>
                             <span class="logo-lg">
-                                <img src="assetsA/images/logo-light.png" alt="" height="20">
+                                <img src="Mey/assetsA/images/logo-dark.png" alt="" height="20">
                             </span>
                         </a>
                     </div>
@@ -319,12 +320,12 @@
                                                        
                     
                                                         <td>
-                                                            <ul class="list-inline mb-0">
+                                                             <ul class="list-inline mb-0">
                                                                 <li class="list-inline-item">
-                                                                    <a href="modifierAccueilleur.html?id=${p.id}" th:href="@{editDir(id=${c.id})}" class="btn btn-purple waves-effect waves-light"> <i class="fe-edit"></i></a>
+                                                                    <a href="modifierAccueilleur.html?id=${p.id}" th:href="@{editAA(id=${c.id})}" class="btn btn-purple waves-effect waves-light"> <i class="fe-edit"></i></a>
                                                                 </li>
                                                                 <li class="list-inline-item">
-                                                                    <a onclick="return confirm('etes vous sure de sepprimer?')"  href="supprimerAcc.html?id=${p.id}" th:href="@{deleteDir(id=${c.id})}" class="btn btn-danger waves-effect waves-light"> <i class="mdi mdi-delete"></i></a>
+                                                                    <a onclick="return confirm('etes vous sure de sepprimer?')"  href="supprimerAcc.html?id=${p.id}" th:href="@{deleteAA(id=${c.id})}" class="btn btn-danger waves-effect waves-light"> <i class="mdi mdi-delete"></i></a>
                                                                 </li>
                                                             </ul>
                                                             
@@ -347,7 +348,7 @@
                                             <h4 class="modal-title">Ajouter Directeur</h4>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
-                                       <form th:action="@{saveDir}" method="post">
+                                         <form th:action="@{saveAA}" method="post">
                                         <div class="modal-body p-4">
                                          
                                             <div class="row">

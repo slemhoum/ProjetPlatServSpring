@@ -4,7 +4,13 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.Payload;
+import org.springframework.messaging.handler.annotation.SendTo;
+import org.springframework.messaging.simp.SimpMessageHeaderAccessor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.example.demo.Repository.Mey.AccReposiotory;
 import com.example.demo.Repository.Mey.ChefProjetReposiotory;
 import com.example.demo.Repository.Mey.ChefServiceReposiotory;
+import com.example.demo.ChatMessagePojo;
 import com.example.demo.Repository.ClientRepository;
 import com.example.demo.Repository.Mey.DemandeReposiotory;
 import com.example.demo.Repository.Mey.DirecteurReposiotory;
@@ -154,7 +161,8 @@ public class MonController {
 	}
 //	Dircteurrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
 	@RequestMapping(value="/dicD")
-	public String dicD(Model model) {
+	public String dicD(Model model,HttpSession session) {
+		Directeur chef=(Directeur) session.getAttribute("chef");
 		Long NBS=serviceReposiotory.count();
 		Long NBP=projetReposiotory.count();
 		List<Projet>p=projetReposiotory.findAll();
@@ -165,11 +173,12 @@ public class MonController {
 	    model.addAttribute("NBC",NBC);
 	    model.addAttribute("NBM",NBM);
 	    model.addAttribute("p",p);
+	    model.addAttribute("chef",chef);
 	return "mey/home";
 		
 	}
 	@RequestMapping(value="/accA")
-	public String accA(Model model) {
+	public String accA(Model model,HttpSession session) {
 		List<Accueilleur>Acc=accReposiotory.findAll();
 	    model.addAttribute("Acc",Acc);
 	    model.addAttribute("client",new Accueilleur());
@@ -293,7 +302,7 @@ public class MonController {
 		List<Accueilleur>Acc=accReposiotory.findAll();
 	    model.addAttribute("Acc",Acc);
 	    model.addAttribute("client",new Accueilleur());
-	return "mey/accueilleur2";
+	return "mey/Dic";
 		
 	}
 	@RequestMapping(value="/saveAA" ,method=RequestMethod.POST)
@@ -416,4 +425,28 @@ public class MonController {
 	return "mey/projet2";
 		
 	}
+	
+	@RequestMapping(value="/chat",method=RequestMethod.GET)
+	public String chat() {
+  
+    
+	return "chat/index";
+		
+	}
+	
+	 @MessageMapping("/chat.sendMessage")
+	    @SendTo("/topic/public")
+	    public ChatMessagePojo sendMessage(@Payload ChatMessagePojo chatMessagePojo) {
+	        return chatMessagePojo;
+	    }
+
+	    @MessageMapping("/chat.addUser")
+	    @SendTo("/topic/public")
+	    public ChatMessagePojo addUser(@Payload ChatMessagePojo chatMessagePojo, 
+	                               SimpMessageHeaderAccessor headerAccessor) {
+	        // Add username in web socket session
+	        headerAccessor.getSessionAttributes().put("username", chatMessagePojo.getSender());
+	        return chatMessagePojo;
+	    }
+
 }

@@ -121,8 +121,8 @@
 										</a>
 									</li>
 									<li>
-										<a href="profile.php?id=Aminata">
-											<span class="link-collapse">Settings</span>
+										<a href="chat">
+											<span class="link-collapse">chat</span>
 										</a>
 									</li>
 								</ul>
@@ -153,6 +153,14 @@
 							<a href="Client">
 								<i class="icon-people"></i>
 								<p>Client</p>
+								
+							</a>
+							
+						</li>
+						<li class="nav-item">
+							<a href="chat">
+								<i class="icon-people"></i>
+								<p>Chat</p>
 								
 							</a>
 							
@@ -257,6 +265,10 @@
 							</div>
 						</div>
 							</div>
+							<input type="hidden"  class="login__input"  id="dt" th:value="${dacc}"/>
+                          <input type="hidden"  class="login__input"  id="dr" th:value="${dr}"/>
+                           <input type="hidden"  class="login__input"  id="da" th:value="${da}"/>
+                               <input type="hidden"  class="login__input"  id="d" th:value="${d}"/>
 						</div>
 						
 					
@@ -453,8 +465,8 @@
 		Circles.create({
 			id:'circles-1',
 			radius:45,
-			th:value="${dacc}",
-			th:maxValue="${d}",
+			value:parseInt($("#dt").val()),
+			maxValue:parseInt($("#d").val()),
 			width:7,
 			th:text="${dacc}",
 			colors:['#f1f1f1', '#2BB930'],
@@ -468,8 +480,8 @@
 		Circles.create({
 			id:'circles-2',
 			radius:45,
-			th:value="${dr}",
-			th:maxValue="${d}",
+			value:parseInt($("#dr").val()),
+			maxValue:parseInt($("#d").val()),
 			width:7,
 			th:text="${d}",
 			colors:['#f1f1f1', '#F25961'],
@@ -483,8 +495,8 @@
 		Circles.create({
 			id:'circles-3',
 			radius:45,
-			th:value="${da}",
-			th:maxValue="${d}",
+			value:parseInt($("#da").val()),
+			maxValue:parseInt($("#d").val()),
 			width:7,
 			th:text="${dac}",
 			colors:['#f1f1f1', '#FF9E27'],
